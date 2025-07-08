@@ -1,0 +1,6 @@
+train: ../data/Deer.v6i.y11/train/images
+val: ../data/Deer.v6i.y11/valid/images
+test: ../data/Deer.v6i.y11/test/images
+
+nc: 1
+names: ['Deer']
