@@ -13,9 +13,8 @@ env/
 .ipynb_checkpoints/
 
 # ---------------- Data & artefacts ----------------
-data/raw/                     # original images (big, often private)
-data/interim/
-data/Deer.v6i.y11/
+data/
+
 experiments/**/weights/       # large .pt files
 *.ckpt                        # stray lightning/keras checkpoints
 *.npz                         # cached arrays
