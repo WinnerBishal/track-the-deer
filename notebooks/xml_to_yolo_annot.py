@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 import os, shutil
 
-xml_folder = '../data/raw/annotations/'
+xml_folder = '../data/raw/annotations/annotations/'
 image_folder = '../data/raw/deer-images-lila-cam-trap/'
 
 output_labels = '../data/Deer.v6i.y11/test/labels/'
@@ -12,9 +12,9 @@ os.makedirs(output_images, exist_ok=True)
 
 # Open xml file
 xml_files = [f for f in os.listdir(xml_folder) if f.endswith('.xml')]
-
+print(f"Found {len(xml_files)} XML files in {xml_folder}")
 image_files = [f for f in os.listdir(image_folder) if f.endswith('.jpg')]
-
+print(f"Found {len(image_files)} image files in {image_folder}")
 
 # Save corresponding images to output folder
 for xml_file in xml_files:
@@ -54,12 +54,13 @@ for xml_file in xml_files:
             
             img_width = int(root.find('size').find('width').text)
             img_height = int(root.find('size').find('height').text)
-            
-            if class_name == 'deer':
+            print(f"Processing {img_name} with class {class_name}")
+            if class_name == 'Deer':
                 bbox = obj.find('bndbox')
                 x_center = (int(bbox.find('xmin').text) + int(bbox.find('xmax').text)) / 2 / img_width
                 y_center = (int(bbox.find('ymin').text) + int(bbox.find('ymax').text)) / 2 / img_height
                 width = (int(bbox.find('xmax').text) - int(bbox.find('xmin').text)) / img_width
                 height = (int(bbox.find('ymax').text) - int(bbox.find('ymin').text)) / img_height
                 f.write(f"0 {x_center} {y_center} {width} {height}\n")
+                print(f"Processed {img_name} with class {class_name}: ({x_center}, {y_center}, {width}, {height})")
 
