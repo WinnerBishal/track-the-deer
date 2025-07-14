@@ -1,0 +1,2 @@
+model_path,experiment_name,precision,recall,map50,map50_95,fitness
+../experiments/7-8-25_y11_ep100/weights/best.pt,7-8-25_,0.8619343834863844

@@ -12,3 +12,4 @@ train:                                # Usage:  make train CFG=cfg/my_run.yaml
 	$(PY) -m src.training.train --cfg $(CFG)
 
 
+

@@ -1,0 +1,2 @@
+model_path,experiment_name,precision,recall,map50,map50_95,fitness
+../experiments/y10s_ep100/weights/best.pt,y10s_ep100,0.9867973796701025,0.9593908629441624,0.9910156798844287,0.8484295562783697,0.8626881686389756

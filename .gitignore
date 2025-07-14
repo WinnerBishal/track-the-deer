@@ -15,6 +15,8 @@ env/
 # ---------------- Data & artefacts ----------------
 data/
 
+runs/
+
 experiments/**/weights/       # large .pt files
 *.ckpt                        # stray lightning/keras checkpoints
 *.npz                         # cached arrays
