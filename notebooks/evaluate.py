@@ -8,7 +8,7 @@ from datetime import datetime
 import ultralytics as ultics
 
 
-best_model_dir = "../experiments/y10s_ep100/weights/best.pt"
+best_model_dir = "../experiments/y8_ep100/weights/best.pt"
 
 model = ultics.YOLO(best_model_dir)
 data_config = "../data/Deer.v6i.y11/data.yaml"
@@ -29,9 +29,12 @@ metrics = {
             'map50': results.box.map50 if hasattr(results.box, 'map50') else 0.0,
             'map50_95': results.box.map if hasattr(results.box, 'map') else 0.0,
             'fitness': results.fitness if hasattr(results, 'fitness') else 0.0,
-            'inference_time': results.inference_time if hasattr(results, 'inference_time') else 0.0,
         }
 
 result_df = pd.DataFrame([metrics])
+
+# Export results to CSV
+output_csv = f'{metrics["experiment_name"]}_test.csv'
+result_df.to_csv(output_csv, index=False)
 
 print(result_df)
