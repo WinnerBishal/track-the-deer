@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 
-img_dir = '../data/Deer.v6i.y11/test/images/'
+img_dir = '../data/Deer.v6i.y11/train/images/'
 img_files = [f for f in os.listdir(img_dir) if f.endswith('.jpg')]
 
 # Draw random 1 image from the test image path
 test_images = np.random.choice(img_files, 5, replace=False)
 
 # draw corresponding labels
-label_dir = '../data/Deer.v6i.y11/test/labels/'
+label_dir = '../data/Deer.v6i.y11/train/labels/'
 
 img_labels = []
 for img in test_images:
@@ -22,7 +22,7 @@ for img in test_images:
     else:
         img_labels.append((img, []))
 
-plt.figure(figsize=(10, 20))
+# plt.figure(figsize=(10, 20))
 
 
 # Draw annotaions on images
@@ -49,8 +49,9 @@ for i, (img, labels) in enumerate(img_labels):
         cv2.putText(image, f'Class {class_id}', (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
         # Plot the results
-        plt.subplot(5, 1, i + 1)
-        plt.imshow(image)
-        plt.axis('off')
 
-plt.savefig('annotated_images.png')
+        plt.imshow(image)
+        
+        plt.axis('off')
+        plt.savefig(f'{i}_annotated_images_dv6.png')
+

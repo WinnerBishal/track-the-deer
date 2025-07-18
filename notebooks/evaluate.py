@@ -8,13 +8,13 @@ from datetime import datetime
 import ultralytics as ultics
 
 
-best_model_dir = "../experiments/y8_ep100/weights/best.pt"
+best_model_dir = "../experiments/Lila.v1.3k_y10s_ep100/weights/best.pt"
 
 model = ultics.YOLO(best_model_dir)
-data_config = "../data/Deer.v6i.y11/data.yaml"
+data_config = "../data/Lila.v1.3k/data.yaml"
 
 results = model.val(data=data_config,
-                    split='test',
+                    split='val',
                     save_json=True,  
                     save_txt=True,   
                     save_conf=True,  
