@@ -1,0 +1,6 @@
+train: ../data/Lila.v1.3k/train/images
+val: ../data/Lila.v1.3k/valid/images
+test: ../data/Lila.v1.3k/test/images
+
+nc: 1
+names: ['Deer']
