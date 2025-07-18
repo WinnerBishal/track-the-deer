@@ -9,10 +9,10 @@ matplotlib.use('Agg')  # Use 'Agg' backend for non-GUI environments
 import os
 
 
-model = YOLO("../experiments/y11_ep100/weights/best.pt")
+model = YOLO("../experiments/Lila.v1.3k_y10s_ep100/weights/best.pt")
 
 # test_img_path = '../data/raw/deer-images-lila-cam-trap/'
-test_img_path = '../data/Deer.v6i.y11/test/images/'
+test_img_path = '../data/Lila.v1.3k/valid/images/'
 
 
 # Draw random 5 images from the test image path
@@ -30,9 +30,8 @@ for img in test_images:
     results = model(image)
 
     # Plot the results
-    plt.subplot(5, 1, test_images.tolist().index(img) + 1)
     plt.imshow(results[0].plot())
-    # plt.axis('off')
-plt.tight_layout()
-plt.savefig('inference_y11_ep100.png')  
-plt.show()
+    plt.axis('off')
+    plt.savefig(f'{img}_inference_y10s_Lila3k.png') 
+ 
+
