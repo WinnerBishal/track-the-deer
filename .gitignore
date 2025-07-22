@@ -17,7 +17,7 @@ data/
 
 runs/
 
-experiments/**/weights/       # large .pt files
+*.pt       # large .pt files
 *.ckpt                        # stray lightning/keras checkpoints
 *.npz                         # cached arrays
 
