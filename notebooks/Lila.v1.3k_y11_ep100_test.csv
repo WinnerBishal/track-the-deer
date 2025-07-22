@@ -1,2 +1,0 @@
-model_path,experiment_name,precision,recall,map50,map50_95,fitness
-../experiments/Lila.v1.3k_y11_ep100/weights/best.pt,Lila.v1.3k_y11_ep100,0.9515085750465506,0.8531394204630911,0.9258097277457403,0.7175502059659199,0.7383761581439019
