@@ -21,6 +21,7 @@ experiments/**/weights/       # large .pt files
 *.pt
 *.ckpt                        # stray lightning/keras checkpoints
 *.npz                         # cached arrays
+*.onnx
 
 # ---------------- Logs & trackers ----------------
 wandb/                         # WANDB local runs
