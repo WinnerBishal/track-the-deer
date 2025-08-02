@@ -1,3 +1,9 @@
+'''
+This is the main script for evaluating all trained models in a single run. 
+Add directory to newly trained models here for extended evaluation.
+It writes the results from evaluation to a csv file.
+'''
+
 import yaml
 import argparse
 import os
@@ -63,44 +69,7 @@ def evaluate(all_models, data_config = "../data/Lila.v1.3k/data.yaml"):
 if __name__ == "__main__":
     evaluate(all_models)
 
-
-# best_model_dir = "../experiments/Lila.v1.3k_y10s_ep100/weights/best.pt"
-# model = ultics.YOLO(best_model_dir)
-# data_config = "../data/Lila.v1.3k/data.yaml"
-
-# results = model.val(data=data_config,
-#                     split='val',
-#                     save_json=True,  
-#                     save_txt=True,   
-#                     save_conf=True,  
-#                     save_hybrid=True,  
-#                     plots=True)  
-
-# metrics = {
-#             'model_name': Path(best_model_dir).name,
-#             'model_path': best_model_dir,
-#             'experiment_name': Path(best_model_dir).parent.parent.name,
-#             'precision': results.box.mp ,
-#             'recall': results.box.mr,
-#             'F1': results.box.f1,
-#             'map50': results.box.map50,
-#             'map50_95': results.box.map,
-#             'fitness': results.fitness,
-#             'preprocessing_time': results.speed['preprocess'],
-#             'inference_time': results.speed['inference'],
-#             'postprocessing_time': results.speed['postprocess'],
-#             'time_loss': results.speed['loss'],
-#             'total_time': results.speed['inference'] + results.speed['postprocess'] + results.speed['loss'] + results.speed['preprocess'],
-#         }
-
-# result_df = pd.DataFrame([metrics])
-
-# # Export results to CSV
-# output_csv = f'{metrics["experiment_name"]}_test.csv'
-# result_df.to_csv(output_csv, index=False)
-
-# print(result_df)
-
+# Uncomment the following code to visualize true vs predicted bounding boxes for a specific image
 '''
 with open('../runs/detect/val12/predictions.json', 'r') as f:
     results = yaml.safe_load(f)
