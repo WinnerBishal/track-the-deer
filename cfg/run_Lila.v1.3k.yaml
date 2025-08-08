@@ -1,8 +1,8 @@
-model: yolov9s.pt 
+model: yolov9c.pt 
 data: cfg/Lila.v1.3k.data.yaml
 epochs: 100
-batch: 64
+batch: 48
 imgsz: 640
-workers: 48
+workers: 32
 project: experiments
-name: Lila.v1.3k_y9s_ep100
+name: Lila.v1.3k_y9c_ep100
