@@ -52,10 +52,14 @@ if __name__ == "__main__":
 
 # Uncomment the following code to visualize true vs predicted bounding boxes for a specific image
 '''
-with open('../runs/detect/val12/predictions.json', 'r') as f:
+print("Working")
+import yaml
+import cv2
+import matplotlib.pyplot as plt
+with open('../../runs/detect/val12/predictions.json', 'r') as f:
     results = yaml.safe_load(f)
 
-img_id = 'loc_0090_im_000046'
+img_id = 'loc_0088_im_001827'
 pred_boxes = []
 
 for result in results:
@@ -64,11 +68,11 @@ for result in results:
 
 print(pred_boxes)
 
-true_label_dir = '../data/Lila.v1.3k/valid/labels'
+true_label_dir = '../../data/Lila.v1.3k/valid/labels'
 with open(f'{true_label_dir}/{img_id}.txt', 'r') as f:
     true_boxes = [line.strip().split()[1:] for line in f.readlines()]
 
-img = cv2.imread(f'../data/Lila.v1.3k/valid/images/{img_id}.jpg')
+img = cv2.imread(f'../../data/Lila.v1.3k/valid/images/{img_id}.jpg')
 
 for box in pred_boxes:
     # Convert YOLO prediction format to bounding box coordinates
@@ -91,4 +95,5 @@ for box_points in true_boxes:
 
 plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 plt.savefig('true_v_pred_bbox.png')
+
 '''

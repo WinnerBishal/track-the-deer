@@ -7,7 +7,7 @@ import os
 import shutil
 from model_paths import all_models
 
-destination_dir = "onnx_models_op15"
+destination_dir = "onnx_models_op13_static"
 os.makedirs(destination_dir, exist_ok=True)
 
 for pt_path in all_models:
