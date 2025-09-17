@@ -1,4 +1,6 @@
-# Track the Deer
+# Track the Deer 
+This repository is a part of the research : 
+**A Comprehensive Evaluation of YOLO-based Deer Detection Performance on Edge Devices**
 
 This github repository contains the source code used for training and evaluation of YOLO models, exporting them to ONNX and using the ONNX models for inference testing on edge devices; NVIDIA Jetson AGX Xavier and Raspberry Pi 5.
 
@@ -20,9 +22,15 @@ track-the-deer/
 └── README.md           # Project documentation
 ```
 
+
+## NOTES
+
+### Dataset
 For dataset, refer to https://www.kaggle.com/datasets/winnerbishal/deer-cameratraps .
 
-The structure streamlines the training process. For instance, models can be trained with ease using commands like `make run CFG=cfg/run_Lila.v1.3k.yaml` . The content of `cfg/run_Lila.v1.3k.yaml` is as follows :
+### How To
+
+The structure streamlines the training process. For instance, models can be trained with ease using commands like `make run CFG=cfg/run_Lila.v1.3k.yaml` . The content of [cfg/run_Lila.v1.3k.yaml](./cfg/run_Lila.v1.3k.yaml) is as follows :
 
 ```yaml
 model: yolov9s.pt 
@@ -37,6 +45,12 @@ name: Lila.v1.3k_y9c_ep100
 
 After training, `make run export_onnx` to generate ONNX models.
 
-Then, refer to `inference/` for source code for running evaluation on devices like NVIDIA Jetson and Raspberry Pi.
+Inference in NVIDIA Jetson AGX Xavier : [jetson_cuda_inference.py](./inference/jetson_cuda_inf.py)
+
+Inference in Raspberry Pi : [pi_inference.py](./inference/pi_inference.py)
+
+Inference is performed on image batches while recording the predictions, inference, pre-processing and post-processing times, and other performance metrics. Finally, a csv file is returned.
+
+
 
 
