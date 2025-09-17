@@ -16,6 +16,11 @@ env/
 data/
 
 runs/
+output_images/
+onnx_models_op13/
+ignore/
+utilities/
+sample\ annotations/
 
 experiments/**/weights/       # large .pt files
 *.pt
