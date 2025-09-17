@@ -1,8 +1,0 @@
-model: yolov10s.pt 
-data: cfg/data_v6i_y11.yaml
-epochs: 100
-batch: 64
-imgsz: 640
-workers: 48
-project: experiments
-name: y10s_ep100

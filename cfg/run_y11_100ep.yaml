@@ -1,8 +1,0 @@
-model: yolo11n.pt 
-data: cfg/data_v6i_y11.yaml
-epochs: 100
-batch: 64
-imgsz: 640
-workers: 48
-project: experiments
-name: 7-8-25_y11_ep100
